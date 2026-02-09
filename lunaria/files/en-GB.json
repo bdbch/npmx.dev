@@ -856,7 +856,11 @@
   },
   "explore": {
     "title": "explore popular packages",
-    "tagline": "discover trending and popular npm packages."
+    "tagline": "discover trending and popular npm packages.",
+    "category": {
+      "title": "explore popular {category} packages",
+      "tagline": "discover the most popular {category} npm packages"
+    }
   },
   "compare": {
     "packages": {

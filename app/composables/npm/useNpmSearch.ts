@@ -6,6 +6,12 @@ export interface NpmSearchOptions {
   size?: number
   /** Offset for pagination */
   from?: number
+  /** A float value to filter by popularity */
+  popularity?: number
+  /** A float value to filter by maintenance */
+  maintenance?: number
+  /** A float value to filter by quality */
+  quality?: number
 }
 
 /**
@@ -63,6 +69,15 @@ export function useNpmSearch() {
     params.set('size', String(options.size ?? 25))
     if (options.from) {
       params.set('from', String(options.from))
+    }
+    if (options.popularity) {
+      params.set('popularity', String(options.popularity))
+    }
+    if (options.maintenance) {
+      params.set('maintenance', String(options.maintenance))
+    }
+    if (options.quality) {
+      params.set('quality', String(options.quality))
     }
 
     const { data: response, isStale } = await $npmRegistry<NpmSearchResponse>(
