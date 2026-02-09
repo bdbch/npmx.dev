@@ -16,6 +16,15 @@ const { isConnected, npmUser } = useConnector()
 
 const desktopLinks = computed<NavigationConfig>(() => [
   {
+    name: 'Explore',
+    label: $t('nav.explore'),
+    to: { name: 'explore' },
+    keyshortcut: 'e',
+    type: 'link',
+    external: false,
+    iconClass: 'i-carbon:compass',
+  },
+  {
     name: 'Compare',
     label: $t('nav.compare'),
     to: { name: 'compare' },

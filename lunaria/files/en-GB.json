@@ -66,6 +66,7 @@
   "nav": {
     "main_navigation": "Main",
     "popular_packages": "Popular packages",
+    "explore": "explore",
     "settings": "settings",
     "compare": "compare",
     "back": "back",
@@ -852,6 +853,10 @@
       "empty": "No organisations found",
       "view_all": "View all"
     }
+  },
+  "explore": {
+    "title": "explore popular packages",
+    "tagline": "discover trending and popular npm packages."
   },
   "compare": {
     "packages": {

@@ -1,6 +1,7 @@
 <script setup lang="ts">
+import PageHeader from '~/components/Header/PageHeader.client.vue'
+
 const router = useRouter()
-const canGoBack = useCanGoBack()
 const { settings } = useSettings()
 const { locale, locales, setLocale: setNuxti18nLocale } = useI18n()
 const colorMode = useColorMode()
@@ -43,26 +44,10 @@ const setLocale: typeof setNuxti18nLocale = locale => {
 <template>
   <main class="container flex-1 py-12 sm:py-16 w-full">
     <article class="max-w-2xl mx-auto">
+      <PageHeader :title="$t('settings.title')">
+        {{ $t('settings.tagline') }}
+      </PageHeader>
       <!-- Header -->
-      <header class="mb-12">
-        <div class="flex items-baseline justify-between gap-4 mb-4">
-          <h1 class="font-mono text-3xl sm:text-4xl font-medium">
-            {{ $t('settings.title') }}
-          </h1>
-          <button
-            type="button"
-            class="inline-flex items-center gap-2 font-mono text-sm text-fg-muted hover:text-fg transition-colors duration-200 rounded focus-visible:outline-accent/70 shrink-0 p-1.5 -mx-1.5"
-            @click="router.back()"
-            v-if="canGoBack"
-          >
-            <span class="i-carbon:arrow-left rtl-flip w-4 h-4" aria-hidden="true" />
-            <span class="sr-only sm:not-sr-only">{{ $t('nav.back') }}</span>
-          </button>
-        </div>
-        <p class="text-fg-muted text-lg">
-          {{ $t('settings.tagline') }}
-        </p>
-      </header>
 
       <!-- Settings sections -->
       <div class="space-y-8">

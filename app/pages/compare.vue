@@ -1,13 +1,11 @@
 <script setup lang="ts">
 import { NO_DEPENDENCY_ID } from '~/composables/usePackageComparison'
 import { useRouteQuery } from '@vueuse/router'
+import PageHeader from '~/components/Header/PageHeader.client.vue'
 
 definePageMeta({
   name: 'compare',
 })
-
-const router = useRouter()
-const canGoBack = useCanGoBack()
 
 // Sync packages with URL query param (stable ref - doesn't change on other query changes)
 const packagesParam = useRouteQuery<string>('packages', '', { mode: 'replace' })
@@ -110,25 +108,9 @@ useSeoMeta({
 <template>
   <main class="container flex-1 py-12 sm:py-16 w-full">
     <div class="max-w-2xl mx-auto">
-      <header class="mb-12">
-        <div class="flex items-baseline justify-between gap-4 mb-4">
-          <h1 class="font-mono text-3xl sm:text-4xl font-medium">
-            {{ $t('compare.packages.title') }}
-          </h1>
-          <button
-            type="button"
-            class="inline-flex items-center gap-2 font-mono text-sm text-fg-muted hover:text-fg transition-colors duration-200 rounded focus-visible:outline-accent/70 shrink-0"
-            @click="router.back()"
-            v-if="canGoBack"
-          >
-            <span class="i-carbon:arrow-left rtl-flip w-4 h-4" aria-hidden="true" />
-            <span class="hidden sm:inline">{{ $t('nav.back') }}</span>
-          </button>
-        </div>
-        <p class="text-fg-muted text-lg">
-          {{ $t('compare.packages.tagline') }}
-        </p>
-      </header>
+      <PageHeader :title="$t('compare.packages.title')">
+        {{ $t('compare.packages.tagline') }}
+      </PageHeader>
 
       <!-- Package selector -->
       <section class="mb-8" aria-labelledby="packages-heading">
