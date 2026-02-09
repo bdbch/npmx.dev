@@ -123,7 +123,7 @@ const categoryGroups: ExploreCategoryGroup[] = [
 
 <template>
   <main class="container flex-1 py-12 sm:py-16 w-full">
-    <div class="max-w-2xl mx-auto">
+    <div class="max-w-4xl mx-auto">
       <PageHeader :title="$t('explore.title')">
         {{ $t('explore.tagline') }}
       </PageHeader>
